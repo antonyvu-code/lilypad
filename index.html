@@ -27,18 +27,25 @@
     <a class="btn btn--solid" href="#berth">Request a berth</a>
   </header>
 
+  <nav class="rail" id="rail" aria-label="Anatomy tour progress">
+    <button type="button" data-target="step-1"><span class="dot" aria-hidden="true"></span>Hull</button>
+    <button type="button" data-target="step-2"><span class="dot" aria-hidden="true"></span>Skin</button>
+    <button type="button" data-target="step-3"><span class="dot" aria-hidden="true"></span>Gardens</button>
+    <button type="button" data-target="step-4"><span class="dot" aria-hidden="true"></span>Harbor</button>
+  </nav>
+
   <main id="main">
 
     <!-- ============ HERO ============ -->
     <section class="hero" id="top" aria-labelledby="hero-title">
-      <p class="label" data-reveal>Floating city program — est. 2026</p>
-      <h1 id="hero-title" data-reveal>The city that<br />rises with the sea.</h1>
-      <p class="hero-sub" data-reveal>
+      <p class="label" data-hero>Floating city program — est. 2026</p>
+      <h1 id="hero-title">The city that<br />rises with the sea.</h1>
+      <p class="hero-sub" data-hero>
         Lilypad is a self-sufficient floating district for 5,000 residents —
         buoyant infrastructure engineered to turn rising water
         from a threat into an address.
       </p>
-      <p class="scroll-cue" data-reveal aria-hidden="true">
+      <p class="scroll-cue" data-hero aria-hidden="true">
         Scroll to explore the anatomy
         <span class="scroll-cue__line"></span>
       </p>
@@ -48,6 +55,7 @@
     <div id="anatomy">
 
       <section class="step" aria-labelledby="step-1">
+        <span class="ghost-num" aria-hidden="true">01</span>
         <div class="panel panel--left" data-reveal>
           <p class="step-num" aria-hidden="true">01</p>
           <p class="label">The hull</p>
@@ -62,6 +70,7 @@
       </section>
 
       <section class="step" aria-labelledby="step-2">
+        <span class="ghost-num" aria-hidden="true">02</span>
         <div class="panel panel--right" data-reveal>
           <p class="step-num" aria-hidden="true">02</p>
           <p class="label">The skin</p>
@@ -75,6 +84,7 @@
       </section>
 
       <section class="step" aria-labelledby="step-3">
+        <span class="ghost-num" aria-hidden="true">03</span>
         <div class="panel panel--left" data-reveal>
           <p class="step-num" aria-hidden="true">03</p>
           <p class="label">The gardens</p>
@@ -88,6 +98,7 @@
       </section>
 
       <section class="step" aria-labelledby="step-4">
+        <span class="ghost-num" aria-hidden="true">04</span>
         <div class="panel panel--right" data-reveal>
           <p class="step-num" aria-hidden="true">04</p>
           <p class="label">The harbor</p>
@@ -113,6 +124,7 @@
         </h2>
         <ul class="cards">
           <li class="card" data-reveal>
+            <span class="card-num" aria-hidden="true">01</span>
             <h3>Energy positive</h3>
             <p>
               Solar petals, wind columns and wave dampers generate 120% of
@@ -121,6 +133,7 @@
             </p>
           </li>
           <li class="card" data-reveal>
+            <span class="card-num" aria-hidden="true">02</span>
             <h3>Water autonomous</h3>
             <p>
               Rain capture, greywater loops and solar desalination close the
@@ -128,6 +141,7 @@
             </p>
           </li>
           <li class="card" data-reveal>
+            <span class="card-num" aria-hidden="true">03</span>
             <h3>Grown on board</h3>
             <p>
               Aquaculture, hydroponics and orchard decks put food security
@@ -135,6 +149,7 @@
             </p>
           </li>
           <li class="card" data-reveal>
+            <span class="card-num" aria-hidden="true">04</span>
             <h3>Storm-rated</h3>
             <p>
               Hull, skin and moorings are rated for Category 5. When the
@@ -147,7 +162,7 @@
 
       <!-- ============ STANDARDS ============ -->
       <section class="standards" aria-labelledby="standards-title">
-        <h2 id="standards-title" class="h-display" data-reveal>
+        <h2 id="standards-title" class="h-display">
           Sea-grade standards<br />across every deck.
         </h2>
         <p class="standards-sub" data-reveal>

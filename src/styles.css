@@ -121,6 +121,11 @@ body {
   backdrop-filter: blur(12px);
   box-shadow: 0 1px 0 rgba(7, 21, 34, 0.08);
 }
+.site-header {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.site-header.hidden { transform: translateY(-110%); }
 
 .logo {
   display: inline-flex;
@@ -141,12 +146,30 @@ body {
 
 .site-nav { display: flex; gap: 28px; }
 .site-nav a {
+  position: relative;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink);
   text-decoration: none;
+}
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 1.5px;
+  background: var(--signal-text);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.site-nav a:hover::after,
+.site-nav a:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 .site-nav a:hover { color: var(--signal-text); }
 
@@ -206,8 +229,27 @@ body {
   display: flex;
   align-items: center;
   padding: 0 clamp(20px, 5vw, 64px);
+  overflow: hidden;
 }
+.ghost-num {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: clamp(9rem, 26vw, 22rem);
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(7, 21, 34, 0.16);
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+.step:nth-child(odd) .ghost-num { right: 2vw; }
+.step:nth-child(even) .ghost-num { left: 2vw; }
 .panel {
+  position: relative;
+  z-index: 1;
   max-width: 440px;
   background: var(--panel-glass);
   backdrop-filter: blur(10px);
@@ -258,6 +300,21 @@ body {
   border: 1px solid rgba(7, 21, 34, 0.08);
   border-radius: 18px;
   padding: 30px 28px 34px;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--signal);
+  box-shadow: 0 24px 48px -28px rgba(7, 21, 34, 0.3);
+}
+.card-num {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--signal-text);
+  margin-bottom: 18px;
 }
 .card h3 {
   font-size: 1.05rem;
@@ -351,6 +408,74 @@ body {
 .site-footer a:hover { color: var(--signal); }
 .site-footer p { max-width: 520px; }
 
+/* ---------- progress rail ---------- */
+.rail {
+  position: fixed;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: opacity 0.4s ease;
+}
+.rail.hidden { opacity: 0; pointer-events: none; }
+.rail button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  background: none;
+  padding: 4px;
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  transition: color 0.3s ease;
+}
+.rail .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ink-soft);
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+.rail button:hover { color: var(--ink); }
+.rail button.active { color: var(--ink); }
+.rail button.active .dot {
+  background: var(--signal);
+  border-color: var(--signal);
+  transform: scale(1.25);
+}
+@media (max-width: 900px) { .rail { display: none; } }
+
+/* ---------- systems: horizontal tour (desktop, motion ok) ---------- */
+@media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
+  .systems {
+    max-width: none;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .systems h2 {
+    width: 100%;
+    max-width: var(--maxw);
+    margin: 0 auto 56px;
+  }
+  .cards {
+    display: flex;
+    width: max-content;
+    gap: 24px;
+  }
+  .card { width: 420px; flex-shrink: 0; }
+}
+
 /* ---------- responsive ---------- */
 @media (max-width: 720px) {
   .site-nav { display: none; }
@@ -363,6 +488,6 @@ body {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .scroll-cue__line { animation: none; }
-  .btn, .faq-list summary::after { transition: none; }
+  .btn, .card, .faq-list summary::after, .site-nav a::after, .site-header { transition: none; }
   [data-reveal] { opacity: 1 !important; transform: none !important; }
 }

@@ -101,6 +101,23 @@ drawings and offshore engineering datasheets, applied to a hopeful subject.
   say "floating," never enough to say "unstable."
 - **DOM reveals:** single pattern only — 24 px rise + fade, 0.9 s,
   `power3.out`, staggered 0.08 s. One easing family per site.
+- **Storytelling layer (ScrollTrigger showcase):**
+  - Hero: SplitText masked-line rise (the headline surfaces like a tide),
+    then a scrubbed exit — content hands the stage to the city 1:1 with
+    the scrollbar.
+  - Ghost numerals 01–04 (26 vw, stroked, transparent) counter-parallax
+    behind the panels — depth without a single extra polygon.
+  - Progress rail (right edge): dots sync to the active anatomy step via
+    `onToggle`, click routes through Lenis `scrollTo`; hides once the
+    solid sections begin.
+  - Standards: word-by-word illumination scrubbed across the viewport
+    (opacity 0.12 → 1).
+  - Systems: section pins and the four proof cards travel horizontally
+    (`pin` + scrub, desktop + motion-ok only via `gsap.matchMedia`);
+    stacked grid everywhere else.
+- **Hover layer:** magnetic buttons (`gsap.quickTo`, `pointer: fine`
+  only), card lift with coral border, nav underline slide, header hides
+  on scroll-down / returns on scroll-up.
 - **Render budget:** DPR clamped at 1.75; RAF fully suspended when the
   solid sections cover the canvas (IntersectionObserver sentinel) and on
   `visibilitychange`.
