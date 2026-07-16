@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LILYPAD — The city that rises with the sea</title>
+  <meta name="description" content="Lilypad is a self-sufficient floating district for 5,000 residents — buoyant infrastructure engineered to turn rising water from a threat into an address." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <canvas id="scene" aria-hidden="true"></canvas>
+
+  <header class="site-header" id="header">
+    <a class="logo" href="#top" aria-label="Lilypad — home">
+      <span class="logo-mark" aria-hidden="true"></span>LILYPAD
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#anatomy">Anatomy</a>
+      <a href="#systems">Systems</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn--solid" href="#berth">Request a berth</a>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <p class="label" data-reveal>Floating city program — est. 2026</p>
+      <h1 id="hero-title" data-reveal>The city that<br />rises with the sea.</h1>
+      <p class="hero-sub" data-reveal>
+        Lilypad is a self-sufficient floating district for 5,000 residents —
+        buoyant infrastructure engineered to turn rising water
+        from a threat into an address.
+      </p>
+      <p class="scroll-cue" data-reveal aria-hidden="true">
+        Scroll to explore the anatomy
+        <span class="scroll-cue__line"></span>
+      </p>
+    </section>
+
+    <!-- ============ ANATOMY 01–04 ============ -->
+    <div id="anatomy">
+
+      <section class="step" aria-labelledby="step-1">
+        <div class="panel panel--left" data-reveal>
+          <p class="step-num" aria-hidden="true">01</p>
+          <p class="label">The hull</p>
+          <h2 id="step-1">Buoyancy, engineered.</h2>
+          <p>
+            A double hull of bio-concrete and recycled composite rides the
+            swell like a leaf. Ballast lagoons at the core shift weight in
+            real time, keeping every street level within half a degree —
+            even in open water.
+          </p>
+        </div>
+      </section>
+
+      <section class="step" aria-labelledby="step-2">
+        <div class="panel panel--right" data-reveal>
+          <p class="step-num" aria-hidden="true">02</p>
+          <p class="label">The skin</p>
+          <h2 id="step-2">A surface that works.</h2>
+          <p>
+            Every exposed face harvests. Photovoltaic petals track the sun,
+            wind columns breathe through the towers, and a titanium-dioxide
+            skin scrubs CO₂ from the air the way a reef filters water.
+          </p>
+        </div>
+      </section>
+
+      <section class="step" aria-labelledby="step-3">
+        <div class="panel panel--left" data-reveal>
+          <p class="step-num" aria-hidden="true">03</p>
+          <p class="label">The gardens</p>
+          <h2 id="step-3">Food inside the hull.</h2>
+          <p>
+            Terraced aquaculture lagoons and vertical farms grow most of the
+            district's calories on board. The central lagoon collects rain,
+            buffers heat, and serves as the city's ballast heart.
+          </p>
+        </div>
+      </section>
+
+      <section class="step" aria-labelledby="step-4">
+        <div class="panel panel--right" data-reveal>
+          <p class="step-num" aria-hidden="true">04</p>
+          <p class="label">The harbor</p>
+          <h2 id="step-4">Arrival, choreographed.</h2>
+          <p>
+            Docking rings on the leeward edge receive zero-emission shuttles
+            and cargo gliders. The district drifts with seasonal currents —
+            a city that travels, yet your address never changes.
+          </p>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- sentinel: everything below covers the canvas -->
+    <div class="ground" id="ground">
+
+      <!-- ============ SYSTEMS ============ -->
+      <section class="systems" id="systems" aria-labelledby="systems-title">
+        <h2 id="systems-title" class="h-display" data-reveal>
+          Designed for the century of water,<br />
+          beyond seawalls and retreat.
+        </h2>
+        <ul class="cards">
+          <li class="card" data-reveal>
+            <h3>Energy positive</h3>
+            <p>
+              Solar petals, wind columns and wave dampers generate 120% of
+              demand. The surplus charges the shuttle fleet and the
+              desalination stacks.
+            </p>
+          </li>
+          <li class="card" data-reveal>
+            <h3>Water autonomous</h3>
+            <p>
+              Rain capture, greywater loops and solar desalination close the
+              cycle. No pipeline to shore, no tanker on the horizon.
+            </p>
+          </li>
+          <li class="card" data-reveal>
+            <h3>Grown on board</h3>
+            <p>
+              Aquaculture, hydroponics and orchard decks put food security
+              inside the hull — measured in meters, not import miles.
+            </p>
+          </li>
+          <li class="card" data-reveal>
+            <h3>Storm-rated</h3>
+            <p>
+              Hull, skin and moorings are rated for Category 5. When the
+              forecast turns, the district seals its edge decks and rides
+              it out.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ============ STANDARDS ============ -->
+      <section class="standards" aria-labelledby="standards-title">
+        <h2 id="standards-title" class="h-display" data-reveal>
+          Sea-grade standards<br />across every deck.
+        </h2>
+        <p class="standards-sub" data-reveal>
+          Modeled on offshore and naval engineering, every system is
+          redundant twice over — buoyancy, power, water, comms.
+          Zero single point of failure is not a slogan. It is the
+          building code.
+        </p>
+      </section>
+
+      <!-- ============ FAQ ============ -->
+      <section class="faq" id="faq" aria-labelledby="faq-title">
+        <h2 id="faq-title" class="h-display" data-reveal>
+          How a district floats,<br />and how it holds.
+        </h2>
+        <div class="faq-list" data-reveal>
+          <details name="faq">
+            <summary>How does a city float?</summary>
+            <p>
+              Displacement — the same physics as a ship, at district scale.
+              The double hull encloses more air than the city weighs, and
+              ballast lagoons at the core pump water between chambers to
+              trim the deck level. Stability is managed the way an offshore
+              platform manages it: continuously, automatically, redundantly.
+            </p>
+          </details>
+          <details name="faq">
+            <summary>What happens in a storm?</summary>
+            <p>
+              The district is engineered to Category-5 offshore standards.
+              When the forecast passes threshold, edge decks seal, the
+              harbor ring closes, and the ballast system lowers the profile
+              against the wind. Residents shelter in place — the safest
+              place in a hurricane at sea is inside a hull built for one.
+            </p>
+          </details>
+          <details name="faq">
+            <summary>Who is Lilypad for?</summary>
+            <p>
+              Coastal communities facing managed retreat, residents displaced
+              by rising water, and the researchers and crews who run the
+              district's systems. The housing charter is mixed-income by
+              design: a floating city that only the wealthy can board is a
+              yacht, not a city.
+            </p>
+          </details>
+          <details name="faq">
+            <summary>When can I move in?</summary>
+            <p>
+              The pilot district — one central pad, two satellite pads,
+              1,200 residents — is targeted for 2031. The first full ring
+              follows in 2035. Berth reservations for the pilot open with
+              the program's next funding phase.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <!-- ============ CTA ============ -->
+      <section class="cta" id="berth" aria-labelledby="cta-title">
+        <h2 id="cta-title" class="h-display" data-reveal>
+          The sea is rising.<br />So are we.
+        </h2>
+        <div class="cta-actions" data-reveal>
+          <a class="btn btn--light" href="#berth">Request a berth</a>
+          <a class="btn btn--ghost" href="#berth">Join the pilot</a>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <nav aria-label="Footer">
+          <a href="#anatomy">Anatomy</a>
+          <a href="#systems">Systems</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <p>
+          © 2026 Lilypad Program — a speculative concept by Nullpunkt.
+          Inspired by Vincent Callebaut's “Lilypad” ecopolis (2008);
+          not affiliated.
+        </p>
+      </footer>
+
+    </div>
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
