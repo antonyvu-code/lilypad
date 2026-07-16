@@ -50,6 +50,24 @@ const canvas = document.getElementById('scene');
 const scene = createScene(canvas, { reducedMotion });
 if (debug) debug.scene = scene;
 
+/* ---------- sheet readout: live nav data follows the tour ---------- */
+const roSec = document.getElementById('ro-sec');
+const roHdg = document.getElementById('ro-hdg');
+const roPos = document.getElementById('ro-pos');
+// section derived from live geometry — one source of truth, so large
+// scroll jumps (anchor clicks) can never skip a state change
+const SECTION_NAMES = ['HULL', 'SKIN', 'GARDENS', 'HARBOR'];
+const stepEls = [...document.querySelectorAll('.step')];
+const updateReadout = (p, scroll) => {
+  const mid = scroll + window.innerHeight / 2;
+  let sec = 'APPROACH';
+  stepEls.forEach((el, i) => { if (mid >= el.offsetTop) sec = SECTION_NAMES[i]; });
+  roSec.textContent = sec;
+  roHdg.textContent = `${((204 + p * 126) % 360).toFixed(1)}°`;
+  roPos.textContent =
+    `04°${(21 + p * 25).toFixed(1)}′N 009°${(18 + p * 36).toFixed(1)}′W`;
+};
+
 if (scene) {
   // camera tour spans hero through the last anatomy step
   ScrollTrigger.create({
@@ -57,7 +75,10 @@ if (scene) {
     start: 'top top',
     endTrigger: '#ground',
     end: 'top bottom',
-    onUpdate: (self) => scene.setProgress(self.progress),
+    onUpdate: (self) => {
+      scene.setProgress(self.progress);
+      updateReadout(self.progress, self.scroll());
+    },
   });
 
   // stop rendering once the solid sections fully cover the canvas
@@ -112,6 +133,18 @@ document.querySelectorAll('.rail button').forEach((btn) => {
     end: 'bottom center',
     onToggle: (self) => btn.classList.toggle('active', self.isActive),
   });
+});
+ScrollTrigger.create({
+  trigger: '#ground',
+  start: 'top center',
+  onEnter: () => { roSec.textContent = 'DOSSIER'; },
+});
+// readout sits over the navy CTA at page end — flip it light there
+ScrollTrigger.create({
+  trigger: '.cta',
+  start: 'top 92%',
+  end: 'bottom top',
+  toggleClass: { targets: '.readout', className: 'invert' },
 });
 ScrollTrigger.create({
   trigger: '#ground',
@@ -178,21 +211,16 @@ mm.add('(prefers-reduced-motion: no-preference)', () => {
   });
 });
 
-/* 6 — systems: pinned section, cards travel horizontally */
-mm.add('(min-width: 900px) and (prefers-reduced-motion: no-preference)', () => {
-  const section = document.querySelector('.systems');
-  const track = document.querySelector('.cards');
-  gsap.to(track, {
-    x: () => -(track.scrollWidth - section.clientWidth + 128),
-    ease: 'none',
-    scrollTrigger: {
-      trigger: section,
-      start: 'top top',
-      end: '+=1000',
-      pin: true,
-      scrub: 1,
-      invalidateOnRefresh: true,
-    },
+/* 6 — systems: spec values count up when their row enters */
+mm.add('(prefers-reduced-motion: no-preference)', () => {
+  gsap.utils.toArray('.spec b[data-count]').forEach((el) => {
+    gsap.fromTo(el, { textContent: 0 }, {
+      textContent: +el.dataset.count,
+      snap: { textContent: 1 }, // integers only while counting
+      duration: 1.6,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: el.closest('.row'), start: 'top 82%' },
+    });
   });
 });
 

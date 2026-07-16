@@ -70,6 +70,19 @@ The visitor performs the same journey a future resident would.
 **Dialect: "MARITIME SPEC"** — the graphic language of naval architecture
 drawings and offshore engineering datasheets, applied to a hopeful subject.
 
+**Layout system: the living blueprint.** The page *is* the engineering
+sheet of the city. A fixed hairline frame with corner registration marks
+wraps the viewport; a mono "readout" (SEC / HDG / POS / DRAFT) sits in
+the lower corner and its values drift live with the camera tour. Every
+section is stamped like a drawing sheet ("SHEET 02 — SYSTEMS SCHEDULE").
+No rounded corners anywhere — blueprints don't have them. The hero is
+asymmetric editorial: headline anchored to the bottom edge at up to
+8.4 rem, sheet-index navigation top-right. Anatomy panels are annotation
+callouts — hairline boxes with a heavy rule on the model side, a leader
+line pointing at the 3D city, and a dimension line carrying a spec value
+(DRAFT — 14.2 M). Systems is a bill-of-materials table: hairline rows
+that invert to ink on hover, spec values in mono that count up on entry.
+
 - **Palette (2-color extreme + one signal):**
   - Sky/fog field: `#d3e6ec` (the entire 3D atmosphere lives in this value)
   - Surface panels: `#f4f8f9`

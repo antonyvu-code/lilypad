@@ -15,6 +15,17 @@
 
   <canvas id="scene" aria-hidden="true"></canvas>
 
+  <!-- drawing-sheet chrome -->
+  <div class="sheet-frame" aria-hidden="true">
+    <i></i><i></i><i></i><i></i>
+  </div>
+  <div class="readout" aria-hidden="true">
+    <span>SEC <b id="ro-sec">APPROACH</b></span>
+    <span>HDG <b id="ro-hdg">204.0°</b></span>
+    <span>POS <b id="ro-pos">04°21.0′N 009°18.0′W</b></span>
+    <span>DRAFT <b>14.2 M</b></span>
+  </div>
+
   <header class="site-header" id="header">
     <a class="logo" href="#top" aria-label="Lilypad — home">
       <span class="logo-mark" aria-hidden="true"></span>LILYPAD
@@ -36,19 +47,34 @@
 
   <main id="main">
 
-    <!-- ============ HERO ============ -->
+    <!-- ============ HERO — SHEET 01 ============ -->
     <section class="hero" id="top" aria-labelledby="hero-title">
-      <p class="label" data-hero>Floating city program — est. 2026</p>
-      <h1 id="hero-title">The city that<br />rises with the sea.</h1>
-      <p class="hero-sub" data-hero>
-        Lilypad is a self-sufficient floating district for 5,000 residents —
-        buoyant infrastructure engineered to turn rising water
-        from a threat into an address.
-      </p>
-      <p class="scroll-cue" data-hero aria-hidden="true">
-        Scroll to explore the anatomy
-        <span class="scroll-cue__line"></span>
-      </p>
+      <nav class="hero-index" aria-label="Sheet index" data-hero>
+        <p class="hero-index__head">Sheet index</p>
+        <a href="#step-1"><span>01</span>The Hull</a>
+        <a href="#step-2"><span>02</span>The Skin</a>
+        <a href="#step-3"><span>03</span>The Gardens</a>
+        <a href="#step-4"><span>04</span>The Harbor</a>
+      </nav>
+
+      <div class="hero-block">
+        <p class="panel-tag" data-hero>
+          <span class="tag-square" aria-hidden="true"></span>
+          Floating city program — est. 2026
+        </p>
+        <h1 id="hero-title">The city that<br />rises with the sea.</h1>
+        <div class="hero-foot" data-hero>
+          <p class="hero-sub">
+            Lilypad is a self-sufficient floating district for 5,000
+            residents — buoyant infrastructure engineered to turn rising
+            water from a threat into an address.
+          </p>
+          <p class="scroll-cue" aria-hidden="true">
+            Scroll — the tour follows the sheet index
+            <span class="scroll-cue__line"></span>
+          </p>
+        </div>
+      </div>
     </section>
 
     <!-- ============ ANATOMY 01–04 ============ -->
@@ -57,8 +83,10 @@
       <section class="step" aria-labelledby="step-1">
         <span class="ghost-num" aria-hidden="true">01</span>
         <div class="panel panel--left" data-reveal>
-          <p class="step-num" aria-hidden="true">01</p>
-          <p class="label">The hull</p>
+          <p class="panel-tag">
+            <span class="tag-square" aria-hidden="true"></span>
+            SEC 01 — The Hull
+          </p>
           <h2 id="step-1">Buoyancy, engineered.</h2>
           <p>
             A double hull of bio-concrete and recycled composite rides the
@@ -66,19 +94,29 @@
             real time, keeping every street level within half a degree —
             even in open water.
           </p>
+          <p class="dim" aria-hidden="true">
+            <span class="dim__line"></span>
+            <span class="dim__val">Draft — 14.2 m</span>
+          </p>
         </div>
       </section>
 
       <section class="step" aria-labelledby="step-2">
         <span class="ghost-num" aria-hidden="true">02</span>
         <div class="panel panel--right" data-reveal>
-          <p class="step-num" aria-hidden="true">02</p>
-          <p class="label">The skin</p>
+          <p class="panel-tag">
+            <span class="tag-square" aria-hidden="true"></span>
+            SEC 02 — The Skin
+          </p>
           <h2 id="step-2">A surface that works.</h2>
           <p>
             Every exposed face harvests. Photovoltaic petals track the sun,
             wind columns breathe through the towers, and a titanium-dioxide
             skin scrubs CO₂ from the air the way a reef filters water.
+          </p>
+          <p class="dim" aria-hidden="true">
+            <span class="dim__line"></span>
+            <span class="dim__val">Output — 34 MW</span>
           </p>
         </div>
       </section>
@@ -86,13 +124,19 @@
       <section class="step" aria-labelledby="step-3">
         <span class="ghost-num" aria-hidden="true">03</span>
         <div class="panel panel--left" data-reveal>
-          <p class="step-num" aria-hidden="true">03</p>
-          <p class="label">The gardens</p>
+          <p class="panel-tag">
+            <span class="tag-square" aria-hidden="true"></span>
+            SEC 03 — The Gardens
+          </p>
           <h2 id="step-3">Food inside the hull.</h2>
           <p>
             Terraced aquaculture lagoons and vertical farms grow most of the
             district's calories on board. The central lagoon collects rain,
             buffers heat, and serves as the city's ballast heart.
+          </p>
+          <p class="dim" aria-hidden="true">
+            <span class="dim__line"></span>
+            <span class="dim__val">Yield — 80 % on-hull</span>
           </p>
         </div>
       </section>
@@ -100,13 +144,19 @@
       <section class="step" aria-labelledby="step-4">
         <span class="ghost-num" aria-hidden="true">04</span>
         <div class="panel panel--right" data-reveal>
-          <p class="step-num" aria-hidden="true">04</p>
-          <p class="label">The harbor</p>
+          <p class="panel-tag">
+            <span class="tag-square" aria-hidden="true"></span>
+            SEC 04 — The Harbor
+          </p>
           <h2 id="step-4">Arrival, choreographed.</h2>
           <p>
             Docking rings on the leeward edge receive zero-emission shuttles
             and cargo gliders. The district drifts with seasonal currents —
             a city that travels, yet your address never changes.
+          </p>
+          <p class="dim" aria-hidden="true">
+            <span class="dim__line"></span>
+            <span class="dim__val">Ring — Ø 30 m</span>
           </p>
         </div>
       </section>
@@ -116,52 +166,61 @@
     <!-- sentinel: everything below covers the canvas -->
     <div class="ground" id="ground">
 
-      <!-- ============ SYSTEMS ============ -->
+      <!-- ============ SYSTEMS — BILL OF MATERIALS ============ -->
       <section class="systems" id="systems" aria-labelledby="systems-title">
+        <p class="panel-tag" data-reveal>
+          <span class="tag-square" aria-hidden="true"></span>
+          Sheet 02 — Systems schedule
+        </p>
         <h2 id="systems-title" class="h-display" data-reveal>
           Designed for the century of water,<br />
           beyond seawalls and retreat.
         </h2>
-        <ul class="cards">
-          <li class="card" data-reveal>
-            <span class="card-num" aria-hidden="true">01</span>
+        <ul class="bom">
+          <li class="row" data-reveal>
+            <span class="row-num" aria-hidden="true">01</span>
             <h3>Energy positive</h3>
             <p>
-              Solar petals, wind columns and wave dampers generate 120% of
-              demand. The surplus charges the shuttle fleet and the
-              desalination stacks.
+              Solar petals, wind columns and wave dampers generate more than
+              the district draws. The surplus charges the shuttle fleet and
+              the desalination stacks.
             </p>
+            <span class="spec"><b data-count="120">120</b><small>%</small></span>
           </li>
-          <li class="card" data-reveal>
-            <span class="card-num" aria-hidden="true">02</span>
+          <li class="row" data-reveal>
+            <span class="row-num" aria-hidden="true">02</span>
             <h3>Water autonomous</h3>
             <p>
               Rain capture, greywater loops and solar desalination close the
               cycle. No pipeline to shore, no tanker on the horizon.
             </p>
+            <span class="spec"><b data-count="100">100</b><small>%</small></span>
           </li>
-          <li class="card" data-reveal>
-            <span class="card-num" aria-hidden="true">03</span>
+          <li class="row" data-reveal>
+            <span class="row-num" aria-hidden="true">03</span>
             <h3>Grown on board</h3>
             <p>
               Aquaculture, hydroponics and orchard decks put food security
               inside the hull — measured in meters, not import miles.
             </p>
+            <span class="spec"><b data-count="80">80</b><small>%</small></span>
           </li>
-          <li class="card" data-reveal>
-            <span class="card-num" aria-hidden="true">04</span>
+          <li class="row" data-reveal>
+            <span class="row-num" aria-hidden="true">04</span>
             <h3>Storm-rated</h3>
             <p>
               Hull, skin and moorings are rated for Category 5. When the
               forecast turns, the district seals its edge decks and rides
               it out.
             </p>
+            <span class="spec"><b>CAT</b><small>-5</small></span>
           </li>
         </ul>
       </section>
 
       <!-- ============ STANDARDS ============ -->
       <section class="standards" aria-labelledby="standards-title">
+        <p class="standards-note" aria-hidden="true">SPEC — REDUNDANCY 2N</p>
         <h2 id="standards-title" class="h-display">
           Sea-grade standards<br />across every deck.
         </h2>
@@ -175,12 +234,16 @@
 
       <!-- ============ FAQ ============ -->
       <section class="faq" id="faq" aria-labelledby="faq-title">
+        <p class="panel-tag" data-reveal>
+          <span class="tag-square" aria-hidden="true"></span>
+          Sheet 03 — Inquiry log
+        </p>
         <h2 id="faq-title" class="h-display" data-reveal>
           How a district floats,<br />and how it holds.
         </h2>
         <div class="faq-list" data-reveal>
           <details name="faq">
-            <summary>How does a city float?</summary>
+            <summary><span class="q" aria-hidden="true">Q.01</span>How does a city float?</summary>
             <p>
               Displacement — the same physics as a ship, at district scale.
               The double hull encloses more air than the city weighs, and
@@ -190,7 +253,7 @@
             </p>
           </details>
           <details name="faq">
-            <summary>What happens in a storm?</summary>
+            <summary><span class="q" aria-hidden="true">Q.02</span>What happens in a storm?</summary>
             <p>
               The district is engineered to Category-5 offshore standards.
               When the forecast passes threshold, edge decks seal, the
@@ -200,7 +263,7 @@
             </p>
           </details>
           <details name="faq">
-            <summary>Who is Lilypad for?</summary>
+            <summary><span class="q" aria-hidden="true">Q.03</span>Who is Lilypad for?</summary>
             <p>
               Coastal communities facing managed retreat, residents displaced
               by rising water, and the researchers and crews who run the
@@ -210,7 +273,7 @@
             </p>
           </details>
           <details name="faq">
-            <summary>When can I move in?</summary>
+            <summary><span class="q" aria-hidden="true">Q.04</span>When can I move in?</summary>
             <p>
               The pilot district — one central pad, two satellite pads,
               1,200 residents — is targeted for 2031. The first full ring
@@ -223,6 +286,10 @@
 
       <!-- ============ CTA ============ -->
       <section class="cta" id="berth" aria-labelledby="cta-title">
+        <p class="panel-tag panel-tag--light" data-reveal>
+          <span class="tag-square" aria-hidden="true"></span>
+          Sheet 04 — Berth request
+        </p>
         <h2 id="cta-title" class="h-display" data-reveal>
           The sea is rising.<br />So are we.
         </h2>
